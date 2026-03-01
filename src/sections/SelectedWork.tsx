@@ -11,7 +11,7 @@ const projects = [
       "Real-time Firestore sync across devices",
       "JWT & RBAC-based authentication system",
     ],
-    github: "#",
+    github: "https://github.com/hsnvp313/S-Mart",
     color: 'from-blue-500/10 to-purple-500/10'
   },
   {
@@ -22,7 +22,7 @@ const projects = [
       "Cross-device architecture with low latency",
       "Real-time input streaming and response",
     ],
-    github: "#",
+    github: "https://github.com/hsnvp313/Mob-Box-The-Game-Controller-Prompt-Engineered",
     color: 'from-green-500/10 to-teal-500/10'
   },
   {
@@ -33,7 +33,7 @@ const projects = [
       "API integration with error handling",
       "Responsive layout with data visualization",
     ],
-    github: "#",
+    github: "https://github.com/hsnvp313/Smart-Dashboard",
     color: 'from-orange-500/10 to-red-500/10'
   },
   {
@@ -44,7 +44,7 @@ const projects = [
       "Clean, minimal UI with responsive design",
       "Vanilla JS with no framework dependency",
     ],
-    github: "#",
+    github: "https://github.com/hsnvp313/Moon-Phase-Tracker-Web-App",
     color: 'from-indigo-500/10 to-pink-500/10'
   },
 ];
