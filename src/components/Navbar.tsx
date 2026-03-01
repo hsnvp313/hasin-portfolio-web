@@ -15,8 +15,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const shouldUseDark = storedTheme ? storedTheme === "dark" : prefersDark;
+    const shouldUseDark = storedTheme === "dark";
 
     document.documentElement.classList.toggle("dark", shouldUseDark);
     setIsDark(shouldUseDark);
