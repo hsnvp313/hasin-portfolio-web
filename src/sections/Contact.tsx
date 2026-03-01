@@ -6,7 +6,7 @@ const Contact = () => {
   const { ref, controls } = useScrollFadeIn();
 
   return (
-    <section id="contact" className="py-20 md:py-28">
+    <section id="contact" className="py-20 md:py-28 bg-card">
       <div className="container max-w-3xl text-center">
         <motion.div
           ref={ref}
@@ -20,28 +20,28 @@ const Contact = () => {
           <p className="text-foreground mb-10">
             Open to opportunities in software development across the UAE.
           </p>
-          <div className="flex items-center justify-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
             <a
               href="mailto:hasinswalahvp@gmail.com"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary-hover transition-colors"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
             >
               <Mail className="w-4 h-4" />
               Email
             </a>
             <a
-              href="https://github.com/hasinvp"
+              href="https://github.com/hsnvp313"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-card text-heading font-medium text-sm border border-border hover:border-primary/40 transition-colors shadow-sm"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-medium text-heading shadow-sm transition-colors hover:border-primary/40"
             >
               <Github className="w-4 h-4" />
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/hasinvp"
+              href="https://linkedin.com/in/hsnvp"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-card text-heading font-medium text-sm border border-border hover:border-primary/40 transition-colors shadow-sm"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-medium text-heading shadow-sm transition-colors hover:border-primary/40"
             >
               <Linkedin className="w-4 h-4" />
               LinkedIn

@@ -1,20 +1,14 @@
-import { ReactNode } from "react";
-import Navbar from "./Navbar";
+import Navbar from "@/components/Navbar";
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children }) => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-14">{children}</main>
-      <footer className="py-8 text-center text-sm text-muted-foreground border-t border-border">
-        © {new Date().getFullYear()} Hasin Swalah VP. All rights reserved.
-      </footer>
+      <main className="w-full">
+        {children}
+      </main>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Github, Linkedin, Download, ArrowDown } from "lucide-react";
-import { Suspense, lazy } from "react";
-import profilePhoto from "@/assets/profile-photo.png";
-
-const Hero3DCanvas = lazy(() => import("@/components/Hero3DCanvas"));
+import resume from "@/assets/resume.pdf";
+import lightHeroImage from "@/assets/tecl.svg";
+import darkHeroImage from "@/assets/a.svg";
 
 const fade = (delay: number) => ({
   initial: { opacity: 0, y: 20 } as const,
@@ -12,102 +12,100 @@ const fade = (delay: number) => ({
 });
 
 const Hero = () => {
+  const [isDark, setIsDark] = useState(() =>
+    document.documentElement.classList.contains("dark"),
+  );
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const syncTheme = () => setIsDark(root.classList.contains("dark"));
+    syncTheme();
+
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
+  const handleDownloadResume = () => {
+    const link = document.createElement("a");
+    link.href = resume;
+    link.download = "Hasin_Swalah_VP_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
-      <div className="container max-w-6xl py-20 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column */}
-          <div>
-            <motion.div className="flex items-center gap-5 mb-8" {...fade(0)}>
-              <img
-                src={profilePhoto}
-                alt="Hasin Swalah VP"
-                className="w-24 h-24 rounded-full object-cover border-2 border-border shadow-sm"
-                loading="eager"
-              />
-              <div>
-                <p className="text-sm font-medium tracking-widest uppercase text-primary">
-                  Dubai, UAE · Immediate Joiner
-                </p>
-              </div>
-            </motion.div>
+    <section
+      id="hero"
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat md:bg-fixed"
+      style={{ backgroundImage: `url(${isDark ? darkHeroImage : lightHeroImage})` }}
+    >
+      <div className="container flex min-h-screen max-w-6xl items-center py-10 md:py-14">
+        <div id="11" className="mx-auto max-w-3xl lg:ml-auto lg:mr-0">
+          <motion.div className="flex items-center gap-4 sm:gap-5" {...fade(0)}>
+            <div>
+              <p className="mb-3 text-2xl font-mono leading-tight sm:text-3xl md:mb-4" {...fade(0.1)}>
+                Hey, I'm
+              </p>
+            </div>
+          </motion.div>
 
-            <motion.h1
-              className="text-4xl sm:text-5xl md:text-[3.25rem] leading-tight mb-4"
-              {...fade(0.1)}
-            >
-              Hasin Swalah VP
-            </motion.h1>
-
-            <motion.p
-              className="text-lg sm:text-xl text-muted-foreground mb-2"
-              {...fade(0.2)}
-            >
-              Junior Software Developer
-            </motion.p>
-
-            <motion.p
-              className="text-base text-muted-foreground max-w-lg mb-8 leading-relaxed"
-              {...fade(0.3)}
-            >
-              Developing secure, scalable and real-time systems — continuously
-              learning, refining and improving with every build.
-            </motion.p>
-
-            <motion.div className="flex flex-wrap gap-3" {...fade(0.4)}>
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary-hover transition-colors"
-              >
-                <ArrowDown className="w-4 h-4" />
-                View Projects
-              </a>
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-card text-heading font-medium text-sm border border-border hover:border-primary/40 transition-colors shadow-sm"
-              >
-                <Download className="w-4 h-4" />
-                Download Resume
-              </a>
-              <a
-                href="https://github.com/hasinvp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-card border border-border hover:border-primary/40 transition-colors shadow-sm text-foreground"
-                aria-label="GitHub"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-              <a
-                href="https://linkedin.com/in/hasinvp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-card border border-border hover:border-primary/40 transition-colors shadow-sm text-foreground"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-            </motion.div>
-          </div>
-
-          {/* Right Column – 3D */}
-          <motion.div
-            className="hidden lg:block h-[420px]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+          <motion.h1
+            className="mb-4 text-3xl leading-tight sm:text-5xl md:text-[3.25rem]"
+            {...fade(0.1)}
           >
-            <Suspense
-              fallback={
-                <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
-                  Loading…
-                </div>
-              }
+            Hasin Swalah VP
+          </motion.h1>
+
+          <motion.p
+            className="mb-2 text-lg text-muted-foreground sm:text-xl"
+            {...fade(0.2)}
+          >
+            Junior Software Developer
+          </motion.p>
+
+          <motion.p
+            className="mb-8 max-w-lg text-base leading-relaxed text-muted-foreground"
+            {...fade(0.3)}
+          >
+            Developing secure, scalable and real-time systems - continuously
+            learning, refining and improving with every build.
+          </motion.p>
+
+          <motion.div className="flex flex-wrap gap-2.5 sm:gap-3" {...fade(0.4)}>
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover sm:px-5"
             >
-              <Hero3DCanvas />
-            </Suspense>
+              <ArrowDown className="h-4 w-4" />
+              View Projects
+            </a>
+            <a
+              onClick={handleDownloadResume}
+              className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 text-sm font-medium text-heading shadow-sm transition-colors hover:border-primary/40 sm:px-5"
+            >
+              <Download className="h-4 w-4" />
+              Download Resume
+            </a>
+            <a
+              href="https://github.com/hsnvp313"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card text-foreground shadow-sm transition-colors hover:border-primary/40"
+              aria-label="GitHub"
+            >
+              <Github className="h-4 w-4" />
+            </a>
+            <a
+              href="https://linkedin.com/in/hsnvp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card text-foreground shadow-sm transition-colors hover:border-primary/40"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
           </motion.div>
         </div>
       </div>

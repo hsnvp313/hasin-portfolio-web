@@ -5,43 +5,47 @@ import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 const projects = [
   {
     title: "S-Mart – Smart Retail Automation",
-    tech: ["Flutter", "Python", "Firebase"],
+    tech: ["Flutter", "Python", "Firebase","JWT","OpenCV"],
     highlights: [
       "QR-based workflow for product scanning and checkout",
       "Real-time Firestore sync across devices",
       "JWT & RBAC-based authentication system",
     ],
     github: "#",
+    color: 'from-blue-500/10 to-purple-500/10'
   },
   {
     title: "MobBox – Real-Time Mobile Controller",
-    tech: ["Flutter", "Python", "Sockets"],
+    tech: ["Flutter", "Python", "Sockets","TCP"],
     highlights: [
       "TCP socket communication between devices",
       "Cross-device architecture with low latency",
       "Real-time input streaming and response",
     ],
     github: "#",
+    color: 'from-green-500/10 to-teal-500/10'
   },
   {
     title: "Smart Dashboard – React Admin Panel",
-    tech: ["React", "REST API"],
+    tech: ["React", "REST API","Vite","Tailwind"],
     highlights: [
       "Modular component architecture",
       "API integration with error handling",
       "Responsive layout with data visualization",
     ],
     github: "#",
+    color: 'from-orange-500/10 to-red-500/10'
   },
   {
     title: "Lunar Tracker – Moon Phase Web App",
-    tech: ["HTML", "CSS", "JavaScript"],
+    tech: ["HTML", "CSS", "JavaScript",],
     highlights: [
       "Astronomical calculations for moon phases",
       "Clean, minimal UI with responsive design",
       "Vanilla JS with no framework dependency",
     ],
     github: "#",
+    color: 'from-indigo-500/10 to-pink-500/10'
   },
 ];
 
@@ -70,13 +74,13 @@ const SelectedWork = () => {
           variants={stagger}
         >
           <motion.h2 className="text-3xl mb-12" variants={fadeUp}>
-            Selected Work
+            Selected Works
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project) => (
               <motion.div
                 key={project.title}
-                className="p-6 rounded-xl bg-background border border-border shadow-sm hover:shadow-md transition-shadow"
+                className={`p-6 rounded-xl bg-background border border-border bg-gradient-to-br ${project.color} shadow-sm hover:shadow-md transition-shadow`}
                 variants={fadeUp}
               >
                 <h3 className="text-lg font-semibold text-heading mb-2">

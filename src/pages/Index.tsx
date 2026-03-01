@@ -4,6 +4,7 @@ import About from "@/sections/About";
 import TechFoundations from "@/sections/TechFoundations";
 import SelectedWork from "@/sections/SelectedWork";
 import Experience from "@/sections/Experience";
+import Certifications from "@/sections/Certifications";
 import Leadership from "@/sections/Leadership";
 import Contact from "@/sections/Contact";
 
@@ -15,6 +16,7 @@ const Index = () => {
       <TechFoundations />
       <SelectedWork />
       <Experience />
+      <Certifications/>
       <Leadership />
       <Contact />
     </Layout>

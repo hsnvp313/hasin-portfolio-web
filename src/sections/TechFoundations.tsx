@@ -3,19 +3,19 @@ import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 
 const categories = [
   {
+    title: "Languages",
+    skills: ['Python', 'JavaScript (ES6+)', 'Dart', 'C'],
+  },
+  {
     title: "Frontend",
-    skills: ["React", "Tailwind", "HTML", "CSS"],
+    skills: ["React","Flutter (Android & Web)", "Tailwind", "HTML", "CSS"],
   },
   {
     title: "Backend",
-    skills: ["Node.js", "Express", "REST APIs"],
+    skills: ["Node.js", "Express", "REST APIs","Session Handling"],
   },
   {
-    title: "Mobile",
-    skills: ["Flutter (Android & Web)"],
-  },
-  {
-    title: "Database",
+    title: "Database & Cloud",
     skills: ["Firebase", "MySQL"],
   },
   {
@@ -24,7 +24,7 @@ const categories = [
   },
   {
     title: "Tools",
-    skills: ["Git", "Postman", "Vite"],
+    skills: ["Git","Github", "Postman", "Vite","npm"],
   },
 ];
 
@@ -32,7 +32,7 @@ const TechFoundations = () => {
   const { ref, controls } = useScrollFadeIn();
 
   return (
-    <section id="skills" className="py-20 md:py-28">
+    <section id="skills" className="py-20 md:py-28 bg-background">
       <div className="container max-w-5xl">
         <motion.div
           ref={ref}
@@ -47,7 +47,7 @@ const TechFoundations = () => {
             {categories.map((cat) => (
               <div
                 key={cat.title}
-                className="p-5 rounded-xl bg-card border border-border shadow-sm hover:shadow-md transition-shadow"
+                className="p-5 rounded-xl bg-card border border-border shadow-sm hover:shadow-md hover:bg-[#2e3235] transition-[background-color] duration-1000 ease-in-out"
               >
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-primary mb-3">
                   {cat.title}

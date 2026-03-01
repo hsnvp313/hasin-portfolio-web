@@ -5,14 +5,14 @@ const About = () => {
   const { ref, controls } = useScrollFadeIn();
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-card">
+    <section id="about" className="relative z-10 py-20 md:py-28 bg-card">
       <div className="container max-w-3xl">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 24 }}
           animate={controls}
           variants={{
-            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            visible: { opacity: 1, y: 0, transition: { duration: 1 } },
           }}
         >
           <h2 className="text-3xl mb-8">About</h2>
