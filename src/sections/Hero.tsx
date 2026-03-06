@@ -1,9 +1,10 @@
 ﻿import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Download, ArrowDown } from "lucide-react";
+import { Github, Linkedin, ArrowDown } from "lucide-react";
 import resume from "@/assets/resume.pdf";
 import lightHeroImage from "@/assets/tecl.svg";
 import darkHeroImage from "@/assets/a.svg";
+import { DownloadDoneIcon } from "@/components/icons/state-icons";
 
 const fade = (delay: number) => ({
   initial: { opacity: 0, y: 20 } as const,
@@ -15,6 +16,7 @@ const Hero = () => {
   const [isDark, setIsDark] = useState(() =>
     document.documentElement.classList.contains("dark"),
   );
+  const [downloadDone, setDownloadDone] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -27,6 +29,7 @@ const Hero = () => {
   }, []);
 
   const handleDownloadResume = () => {
+    setDownloadDone(true);
     const link = document.createElement("a");
     link.href = resume;
     link.download = "Hasin_Swalah_VP_Resume.pdf";
@@ -85,7 +88,7 @@ const Hero = () => {
               onClick={handleDownloadResume}
               className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 text-sm font-medium text-heading shadow-sm transition-colors hover:border-primary/40 sm:px-5"
             >
-              <Download className="h-4 w-4" />
+              <DownloadDoneIcon done={downloadDone} size={16} className="text-heading" />
               Download Resume
             </a>
             <a

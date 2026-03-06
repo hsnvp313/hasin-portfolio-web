@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
+import { MenuCloseIcon } from "@/components/icons/state-icons";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -69,7 +70,7 @@ const Navbar = () => {
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
-            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <MenuCloseIcon open={open} size={20} className="text-foreground" />
           </button>
         </div>
       </div>
